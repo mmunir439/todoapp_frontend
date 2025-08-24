@@ -36,23 +36,23 @@ export default function Register() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-r from-green-200 via-blue-200 to-purple-200 p-6 animate-fade-in">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-r from-yellow-200 via-orange-200 to-red-200 p-6 animate-fade-in">
       {successful && (
-        <div className="w-full max-w-lg mb-4 p-4 rounded-lg bg-green-100 border border-green-400 text-green-800 text-center font-semibold shadow animate-bounce-in">
+        <div className="w-full max-w-md mb-4 p-4 rounded-lg bg-green-100 border border-green-400 text-green-800 text-center font-semibold shadow animate-bounce-in">
           {successful}
         </div>
       )}
       {errormessage && (
-        <div className="w-full max-w-lg mb-4 p-4 rounded-lg bg-red-100 border border-red-400 text-red-800 text-center font-semibold shadow animate-shake">
+        <div className="w-full max-w-md mb-4 p-4 rounded-lg bg-red-100 border border-red-400 text-red-800 text-center font-semibold shadow animate-shake">
           {errormessage}
         </div>
       )}
-      <h1 className="text-3xl font-bold text-gray-800 mb-6 drop-shadow-lg">
+      <h1 className="text-4xl font-extrabold text-gray-800 mb-6 drop-shadow-lg text-center animate-bounce">
         User Registration
       </h1>
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-lg bg-white p-8 rounded-xl shadow-lg"
+        className="w-full max-w-md bg-white p-6 rounded-xl shadow-lg border border-orange-300"
       >
         <label
           htmlFor="username"
@@ -66,7 +66,7 @@ export default function Register() {
           placeholder="Enter username"
           value={formData.username}
           onChange={handleChange}
-          className="w-full p-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
         />
         <label
           htmlFor="email"
@@ -80,7 +80,7 @@ export default function Register() {
           placeholder="Enter email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full p-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
         />
         <label
           htmlFor="cnic"
@@ -94,7 +94,7 @@ export default function Register() {
           placeholder="Enter CNIC"
           value={formData.cnic}
           onChange={handleChange}
-          className="w-full p-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
         />
         <label
           htmlFor="password"
@@ -108,11 +108,11 @@ export default function Register() {
           placeholder="Enter password"
           value={formData.password}
           onChange={handleChange}
-          className="w-full p-4 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+          className="w-full p-3 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
         />
         <button
           type="submit"
-          className="w-full p-4 bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-white rounded-lg hover:from-green-500 hover:via-blue-600 hover:to-purple-600 transition-all duration-300 font-bold shadow-lg"
+          className="w-full p-3 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white rounded-lg hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 transition-all duration-300 font-bold shadow-lg"
         >
           Register
         </button>

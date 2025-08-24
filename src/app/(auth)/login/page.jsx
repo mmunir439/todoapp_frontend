@@ -11,7 +11,7 @@ export default function Login() {
   });
   const [successful, setSuccessful] = useState("");
   const [errormessage, setErrormessage] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -21,7 +21,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // Set submitting state to true
+    setIsSubmitting(true);
     try {
       const response = await axios.post("/user/loginuser", formData);
       console.log("Response from backend:", response.data);
@@ -43,28 +43,28 @@ export default function Login() {
       setErrormessage("Login error. Please try again.");
       setSuccessful("");
     } finally {
-      setIsSubmitting(false); // Reset submitting state
+      setIsSubmitting(false);
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-yellow-200 via-orange-200 to-red-200 p-6 flex flex-col justify-center items-center">
       {successful && (
-        <div className="w-full max-w-lg mb-4 p-4 rounded-lg bg-green-100 border border-green-400 text-green-800 text-center font-semibold shadow animate-bounce-in">
+        <div className="w-full max-w-md mb-4 p-4 rounded-lg bg-green-100 border border-green-400 text-green-800 text-center font-semibold shadow animate-bounce-in">
           {successful}
         </div>
       )}
       {errormessage && (
-        <div className="w-full max-w-lg mb-4 p-4 rounded-lg bg-red-100 border border-red-400 text-red-800 text-center font-semibold shadow animate-shake">
+        <div className="w-full max-w-md mb-4 p-4 rounded-lg bg-red-100 border border-red-400 text-red-800 text-center font-semibold shadow animate-shake">
           {errormessage}
         </div>
       )}
-      <h1 className="text-4xl font-bold text-gray-800 mb-6 drop-shadow-lg text-center">
+      <h1 className="text-4xl font-extrabold text-gray-800 mb-6 drop-shadow-lg text-center animate-bounce">
         User Login
       </h1>
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-lg bg-white p-8 rounded-xl shadow-lg"
+        className="w-full max-w-md bg-white p-6 rounded-xl shadow-lg border border-orange-300"
       >
         <label
           htmlFor="email"
@@ -78,7 +78,7 @@ export default function Login() {
           placeholder="Enter email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full p-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
         />
         <label
           htmlFor="password"
@@ -92,7 +92,7 @@ export default function Login() {
           placeholder="Enter password"
           value={formData.password}
           onChange={handleChange}
-          className="w-full p-4 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
+          className="w-full p-3 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all duration-300"
         />
         <div className="flex justify-between items-center mb-6">
           <Link
@@ -101,16 +101,14 @@ export default function Login() {
           >
             Forgot Password?
           </Link>
-          <Link
-            href="/register"
-            className="text-sm text-gray-600 hover:underline"
+          <p
           >
-            Don't have an account? Register here.
-          </Link>
+            Don't have an account? <Link href="/register" className="text-sm hover:underline text-orange-600">Register</Link> here.
+          </p>
         </div>
         <button
           type="submit"
-          className="w-full p-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white rounded-lg hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 transition-all duration-300 font-bold shadow-lg"
+          className="w-full p-3 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white rounded-lg hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 transition-all duration-300 font-bold shadow-lg"
         >
           {isSubmitting ? "Logging in..." : "Login"}
         </button>

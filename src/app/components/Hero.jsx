@@ -54,17 +54,17 @@ export default function Alltask() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+    <div className="min-h-screen bg-gradient-to-r from-orange-100 via-red-200 to-white p-6">
+      <h1 className="text-4xl font-extrabold text-center text-orange-800 mb-6 animate-bounce">
         All Tasks
       </h1>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {tasks.map((task) => (
           <div
             key={task._id}
-            className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-orange-300"
           >
-            <h2 className="text-xl font-bold text-gray-700 mb-2">
+            <h2 className="text-2xl font-bold text-red-700 mb-2">
               {task.tasktitle}
             </h2>
             <p className="text-gray-600 mb-1">

@@ -7,12 +7,12 @@ const Navbar = () => {
   const user = token ? decodeToken() : null; // Decode token to get user info
 
   return (
-    <nav className="bg-blue-500 text-white p-4 shadow-md">
+    <nav className="bg-gradient-to-r from-orange-500 via-red-500 to-white text-white p-4 shadow-lg">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
         {/* Logo and App Name */}
         <div className="flex items-center space-x-2">
-          <FaTasks className="text-2xl" />
-          <Link href="/" className="text-xl font-bold hover:underline">
+          <FaTasks className="text-3xl animate-spin" />
+          <Link href="/" className="text-2xl font-extrabold hover:underline">
             TodoApp
           </Link>
         </div>

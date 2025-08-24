@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "@/app/utils/axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
 export default function AddTask() {
   const [formData, setFormData] = useState({
     tasktitle: "",
@@ -12,7 +13,7 @@ export default function AddTask() {
   });
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +22,7 @@ export default function AddTask() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // Set submitting state to true
+    setIsSubmitting(true);
     try {
       const response = await axios.post("/task/addtask", formData);
       setMessage("Task added successfully!");
@@ -31,93 +32,93 @@ export default function AddTask() {
       setError(err.response?.data?.message || "An error occurred.");
       setMessage("");
     } finally {
-      setIsSubmitting(false); // Reset submitting state
+      setIsSubmitting(false);
     }
   };
 
   return (
     <>
-    <Navbar />
-    <div className="min-h-screen bg-gradient-to-r from-green-100 via-green-200 to-green-300 p-6 flex flex-col justify-center items-center">
-      {message && (
-        <div className="w-full max-w-lg mb-4 p-4 rounded-lg bg-green-100 border border-green-400 text-green-800 text-center font-semibold shadow">
-          {message}
-        </div>
-      )}
-      {error && (
-        <div className="w-full max-w-lg mb-4 p-4 rounded-lg bg-red-100 border border-red-400 text-red-800 text-center font-semibold shadow">
-          {error}
-        </div>
-      )}
-      <h1 className="text-3xl font-bold text-gray-800 mb-6 drop-shadow-lg text-center">
-        Add Task
-      </h1>
-      <form
-        onSubmit={handleSubmit}
-        className="w-full max-w-lg bg-white p-8 rounded-xl shadow-lg"
-      >
-        <label
-          htmlFor="tasktitle"
-          className="block mb-2 font-semibold text-gray-700"
+      <Navbar />
+      <div className="min-h-screen bg-gradient-to-r from-green-100 via-green-200 to-green-300 p-6 flex flex-col justify-center items-center">
+        {message && (
+          <div className="w-full max-w-lg mb-4 p-4 rounded-lg bg-green-100 border border-green-400 text-green-800 text-center font-semibold shadow">
+            {message}
+          </div>
+        )}
+        {error && (
+          <div className="w-full max-w-lg mb-4 p-4 rounded-lg bg-red-100 border border-red-400 text-red-800 text-center font-semibold shadow">
+            {error}
+          </div>
+        )}
+        <h1 className="text-4xl font-extrabold text-gray-800 mb-6 drop-shadow-lg text-center animate-bounce">
+          Add Task
+        </h1>
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-md bg-white p-6 rounded-xl shadow-lg border border-green-300"
         >
-          Task Title
-        </label>
-        <input
-          type="text"
-          name="tasktitle"
-          placeholder="Enter task title"
-          value={formData.tasktitle}
-          onChange={handleChange}
-          className="w-full p-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
-        />
-        <label
-          htmlFor="taskdescription"
-          className="block mb-2 font-semibold text-gray-700"
-        >
-          Task Description
-        </label>
-        <textarea
-          name="taskdescription"
-          placeholder="Enter task description"
-          value={formData.taskdescription}
-          onChange={handleChange}
-          className="w-full p-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
-        ></textarea>
-        <label
-          htmlFor="startdate"
-          className="block mb-2 font-semibold text-gray-700"
-        >
-          Start Date
-        </label>
-        <input
-          type="date"
-          name="startdate"
-          value={formData.startdate}
-          onChange={handleChange}
-          className="w-full p-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
-        />
-        <label
-          htmlFor="enddate"
-          className="block mb-2 font-semibold text-gray-700"
-        >
-          End Date
-        </label>
-        <input
-          type="date"
-          name="enddate"
-          value={formData.enddate}
-          onChange={handleChange}
-          className="w-full p-4 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
-        />
-        <button
-          type="submit"
-          className="w-full p-4 bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white rounded-lg hover:from-green-500 hover:via-green-600 hover:to-green-700 transition-all duration-300 font-bold shadow-lg"
-        >
-          {isSubmitting ? "Adding Task..." : "Add Task"}
-        </button>
-      </form>
-    </div>
-    <Footer />
+          <label
+            htmlFor="tasktitle"
+            className="block mb-2 font-semibold text-gray-700"
+          >
+            Task Title
+          </label>
+          <input
+            type="text"
+            name="tasktitle"
+            placeholder="Enter task title"
+            value={formData.tasktitle}
+            onChange={handleChange}
+            className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
+          />
+          <label
+            htmlFor="taskdescription"
+            className="block mb-2 font-semibold text-gray-700"
+          >
+            Task Description
+          </label>
+          <textarea
+            name="taskdescription"
+            placeholder="Enter task description"
+            value={formData.taskdescription}
+            onChange={handleChange}
+            className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
+          ></textarea>
+          <label
+            htmlFor="startdate"
+            className="block mb-2 font-semibold text-gray-700"
+          >
+            Start Date
+          </label>
+          <input
+            type="date"
+            name="startdate"
+            value={formData.startdate}
+            onChange={handleChange}
+            className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
+          />
+          <label
+            htmlFor="enddate"
+            className="block mb-2 font-semibold text-gray-700"
+          >
+            End Date
+          </label>
+          <input
+            type="date"
+            name="enddate"
+            value={formData.enddate}
+            onChange={handleChange}
+            className="w-full p-3 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
+          />
+          <button
+            type="submit"
+            className="w-full p-3 bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white rounded-lg hover:from-green-500 hover:via-green-600 hover:to-green-700 transition-all duration-300 font-bold shadow-lg"
+          >
+            {isSubmitting ? "Adding Task..." : "Add Task"}
+          </button>
+        </form>
+      </div>
+      <Footer />
     </>
   );
 }

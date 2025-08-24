@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "@/app/utils/axios";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
-
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 export default function Dashboard() {
   const [tasks, setTasks] = useState([]);
   const [userdata, setUserdata] = useState([]);
@@ -88,8 +89,10 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+    <div>
+      <Navbar />
+    <div className="min-h-screen bg-gradient-to-r from-orange-100 via-red-200 to-white p-6">
+      <h1 className="text-4xl font-extrabold text-center text-orange-800 mb-6 animate-bounce">
         User Dashboard
       </h1>
 
@@ -99,9 +102,9 @@ export default function Dashboard() {
             {userdata.map((value, index) => (
               <div
                 key={index}
-                className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-orange-300"
               >
-                <h2 className="text-xl font-bold text-gray-700 mb-2">
+                <h2 className="text-2xl font-bold text-red-700 mb-2">
                   {value.username}
                 </h2>
                 <p className="text-gray-600 mb-1">
@@ -119,27 +122,25 @@ export default function Dashboard() {
       </div>
 
       <div className="container mx-auto">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">Tasks</h2>
+        <h2 className="text-3xl font-bold text-orange-800 mb-4">Tasks</h2>
         {tasks && tasks.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {tasks.map((task) => (
               <div
                 key={task._id}
-                className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-orange-300"
               >
-                <h3 className="text-xl font-bold text-gray-700 mb-2">
+                <h3 className="text-2xl font-bold text-red-700 mb-2">
                   {task.tasktitle}
                 </h3>
                 <p className="text-gray-600 mb-1">
                   <strong>Description:</strong> {task.taskdescription}
                 </p>
                 <p className="text-gray-600 mb-1">
-                  <strong>Start Date:</strong>{" "}
-                  {new Date(task.startdate).toLocaleDateString()}
+                  <strong>Start Date:</strong> {new Date(task.startdate).toLocaleDateString()}
                 </p>
                 <p className="text-gray-600 mb-1">
-                  <strong>End Date:</strong>{" "}
-                  {new Date(task.enddate).toLocaleDateString()}
+                  <strong>End Date:</strong> {new Date(task.enddate).toLocaleDateString()}
                 </p>
                 <div className="flex space-x-4 mt-4">
                   <button
@@ -263,6 +264,8 @@ export default function Dashboard() {
           </div>
         </div>
       )}
+    </div>
+    <Footer/>
     </div>
   );
 }
