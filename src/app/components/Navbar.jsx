@@ -1,23 +1,30 @@
 import Link from 'next/link';
 import { FaHome, FaTasks, FaUserPlus, FaSignInAlt, FaPlusCircle, FaUser } from 'react-icons/fa';
 import { getToken, decodeToken } from '@/app/utils/token';
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
-  const token = getToken();
-  const user = token ? decodeToken() : null; // Decode token to get user info
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const token = getToken();
+    if (token) {
+      setUser(decodeToken(token));
+    } else {
+      setUser(null);
+    }
+  }, []);
 
   return (
-    <nav className="bg-orange-500 text-white p-4 shadow-lg">
+    <nav className="bg-green-500 text-white p-4 shadow-lg">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
-        {/* Logo and App Name */}
         <div className="flex items-center space-x-2">
-          <FaTasks className="text-3xl"/>
+          <FaTasks className="text-3xl" />
           <Link href="/" className="text-2xl font-extrabold hover:underline">
             TodoApp
           </Link>
         </div>
 
-        {/* Navigation Links */}
         <div className="flex flex-wrap space-x-6 mt-4 md:mt-0">
           <Link href="/" className="flex items-center space-x-1 hover:underline">
             <FaHome />
@@ -27,30 +34,17 @@ const Navbar = () => {
             <FaPlusCircle />
             <span>Add Todo</span>
           </Link>
-          <Link href="/getalltasks" className="flex items-center space-x-1 hover:underline">
-            <FaTasks />
-            <span>All Todos</span>
+          <Link href="/register" className="flex items-center space-x-1 hover:underline">
+            <FaUserPlus />
+            <span>Register</span>
           </Link>
-          {user ? (
-            <Link href="/userdashboard" className="flex items-center space-x-1 hover:underline">
-              <FaUser />
-              <span>{user.username}</span>
-            </Link>
-          ) : (
-            <>
-              <Link href="/register" className="flex items-center space-x-1 hover:underline">
-                <FaUserPlus />
-                <span>Register</span>
-              </Link>
-              <Link href="/login" className="flex items-center space-x-1 hover:underline">
-                <FaSignInAlt />
-                <span>Login</span>
-              </Link>
-            </>
-          )}
-        </div>
+          <Link href="/login" className="flex items-center space-x-1 hover:underline">
+            <FaSignInAlt />
+            <span>Login</span>
+          </Link>
       </div>
-    </nav>
+    </div>
+    </nav >
   );
 };
 
