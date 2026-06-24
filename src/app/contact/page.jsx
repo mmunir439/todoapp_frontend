@@ -1,41 +1,36 @@
 "use client";
 
-import React from "react";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaUser } from "react-icons/fa";
+import { FaPhone, FaMapMarkerAlt, FaUser } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useLanguage } from "@/app/context/LanguageContext";
+import { DEFAULT_SHOP_NAME, OWNER_NAME } from "@/app/utils/shopHelpers";
 
 export default function Contact() {
+  const { t } = useLanguage();
+  const items = [
+    { icon: FaUser, label: `${t("contact.shopOwner")}: ${OWNER_NAME}` },
+    { icon: FaPhone, label: "+92 319 5803212" },
+    { icon: FaMapMarkerAlt, label: t("contact.localShop") },
+  ];
+
   return (
-    <div>
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-sky-50 via-white to-sky-50">
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-r from-orange-100 via-red-200 to-white p-6">
-        <div className="container mx-auto bg-white p-8 rounded-lg shadow-lg">
-          <h1 className="text-4xl font-extrabold text-center text-orange-800 mb-6 animate-bounce">
-            Contact Information
-          </h1>
-
-          <div className="flex items-center mb-4">
-            <FaUser className="text-orange-500 text-2xl mr-4" />
-            <p className="text-gray-700 text-lg font-medium">Muhammad Munir</p>
-          </div>
-
-          <div className="flex items-center mb-4">
-            <FaPhone className="text-red-500 text-2xl mr-4" />
-            <p className="text-gray-700 text-lg font-medium">+92 319 5803212</p>
-          </div>
-
-          <div className="flex items-center mb-4">
-            <FaEnvelope className="text-yellow-500 text-2xl mr-4" />
-            <p className="text-gray-700 text-lg font-medium">munir.webdev@gmail.com</p>
-          </div>
-
-          <div className="flex items-center mb-4">
-            <FaMapMarkerAlt className="text-green-500 text-2xl mr-4" />
-            <p className="text-gray-700 text-lg font-medium">Muzaffargarh, Shahgarh</p>
+      <main className="container mx-auto flex-1 px-4 py-12">
+        <div className="mx-auto max-w-lg rounded-2xl border border-sky-100 bg-white p-8 shadow-lg">
+          <h1 className="text-center text-3xl font-extrabold text-slate-800">{t("contact.title")}</h1>
+          <p className="mt-2 text-center text-slate-600">{DEFAULT_SHOP_NAME} — {t("contact.subtitle")}</p>
+          <div className="mt-8 space-y-4">
+            {items.map(({ icon: Icon, label }) => (
+              <div key={label} className="flex items-center gap-4 rounded-xl bg-sky-50 p-4">
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-100 text-sky-600"><Icon size={18} /></span>
+                <p className="font-medium text-slate-700">{label}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   );

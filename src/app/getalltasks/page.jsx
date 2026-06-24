@@ -1,7 +1,12 @@
 "use client";
-import axios from "@/app/utils/axios";
-import React, { useState, useEffect } from "react";
-import Hero from "@/app/components/Hero"
-export default function Alltask() {
-    <Hero/>
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function GetAllTasksRedirect() {
+  const router = useRouter();
+  useEffect(() => {
+    router.replace("/dashboard");
+  }, [router]);
+  return null;
 }

@@ -1,13 +1,17 @@
 "use client";
-import React from "react";
+
+import Link from "next/link";
+import { useLanguage } from "@/app/context/LanguageContext";
+
 export default function NotFound() {
+  const { t } = useLanguage();
+
   return (
-    <div className="flex flex-col items-center justify-center bg-orange-200
-    min-h-screen  text-gray-800">
-      <h1 className="text-6xl text-orange-900 font-bold mb-4">404</h1>
-      <h2 className="text-2xl mb-2 text-orange-900">Page Not Found</h2>
-      <p className="mb-6 text-orange-900">Sorry, the page you are looking for does not exist.</p>
-      <a href="/" className="px-4 py-2 bg-orange-800 text-white rounded hover:bg-gray-700">Go Home</a>
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-sky-100 to-blue-100 px-4 text-slate-800">
+      <h1 className="text-7xl font-extrabold text-sky-700">404</h1>
+      <h2 className="mt-2 text-2xl font-semibold">{t("notFound.title")}</h2>
+      <p className="mt-2 text-slate-600">{t("notFound.desc")}</p>
+      <Link href="/" className="btn-primary mt-8">{t("notFound.goHome")}</Link>
     </div>
   );
 }
