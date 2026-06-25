@@ -10,7 +10,7 @@ export default function Contact() {
   const { t } = useLanguage();
   const items = [
     { icon: FaUser, label: `${t("contact.shopOwner")}: ${OWNER_NAME}` },
-    { icon: FaPhone, label: "+92 319 5803212" },
+    { icon: FaPhone, label: "+92 4482295288" },
     { icon: FaMapMarkerAlt, label: t("contact.localShop") },
   ];
 
@@ -20,7 +20,7 @@ export default function Contact() {
       <main className="container mx-auto flex-1 px-4 py-12">
         <div className="mx-auto max-w-lg rounded-2xl border border-sky-100 bg-white p-8 shadow-lg">
           <h1 className="text-center text-3xl font-extrabold text-slate-800">{t("contact.title")}</h1>
-          <p className="mt-2 text-center text-slate-600">{DEFAULT_SHOP_NAME} — {t("contact.subtitle")}</p>
+          <p className="mt-2 text-center text-slate-600">{DEFAULT_SHOP_NAME} Tanvir{t("contact.subtitle")}</p>
           <div className="mt-8 space-y-4">
             {items.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-4 rounded-xl bg-sky-50 p-4">

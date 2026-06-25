@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="text-center md:text-start">
           <p className="font-semibold">Tanvir Shop Manager</p>
           <p className="text-sm text-sky-200">
-            {t("footer.owner")}: {OWNER_NAME} — {t("footer.connected")}
+            {t("footer.owner")}: {OWNER_NAME} Tanvir{t("footer.connected")}
           </p>
         </div>
         <nav className="flex gap-4 text-sm text-sky-200">

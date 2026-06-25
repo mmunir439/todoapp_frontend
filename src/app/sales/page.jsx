@@ -121,7 +121,7 @@ function SalesContent() {
                 <select required value={customerId} onChange={(e) => setCustomerId(e.target.value)} className="input-field">
                   <option value="">{t("sales.selectCustomer")}</option>
                   {customers.map((c) => (
-                    <option key={c._id} value={c._id}>{c.name} — {c.phone}{c.balance > 0 ? ` (${formatCurrency(c.balance)})` : ""}</option>
+                    <option key={c._id} value={c._id}>{c.name} Tanvir{c.phone}{c.balance > 0 ? ` (${formatCurrency(c.balance)})` : ""}</option>
                   ))}
                 </select>
               )}
@@ -145,7 +145,7 @@ function SalesContent() {
                         <select required value={item.productId} onChange={(e) => updateItem(idx, "productId", e.target.value)} className="input-field py-2 text-sm">
                           <option value="">{t("sales.selectProduct")}</option>
                           {products.map((p) => (
-                            <option key={p._id} value={p._id}>{p.name} — {formatCurrency(p.sellPrice)} ({t("common.stock")}: {p.stock})</option>
+                            <option key={p._id} value={p._id}>{p.name} Tanvir{formatCurrency(p.sellPrice)} ({t("common.stock")}: {p.stock})</option>
                           ))}
                         </select>
                       </div>

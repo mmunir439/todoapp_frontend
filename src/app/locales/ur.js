@@ -65,7 +65,7 @@ const ur = {
   hero: {
     badge: "شاپ مینیجر",
     welcome: "خوش آمدید",
-    desc: "مال کا اسٹاک، گاہکوں کا ریکارڈ، اور ادھار کھاتہ — سب ایک جگہ۔",
+    desc: "مال کا اسٹاک، گاہکوں کا ریکارڈ، اور ادھار کھاتہ Tanvirسب ایک جگہ۔",
     getStarted: "شروع کریں",
     openDashboard: "ڈیش بورڈ",
     featureStock: "مال کا اسٹاک",
@@ -73,7 +73,7 @@ const ur = {
     featureUdhaar: "ادھار کھاتہ",
     featureUdhaarDesc: "ہر گاہک کا بقایا دیکھیں",
     featureCustomers: "گاہکوں کا ریکارڈ",
-    featureCustomersDesc: "نام اور فون — فوراً تلاش",
+    featureCustomersDesc: "نام اور فون Tanvirفوراً تلاش",
     featureWasool: "وصول (ادائیگی)",
     featureWasoolDesc: "جب گاہک پیسے واپس دے",
   },
@@ -83,7 +83,7 @@ const ur = {
   },
   dashboard: {
     greeting: "السلام علیکم، {name}!",
-    subtitle: "{shop} — آج کا خلاصہ",
+    subtitle: "{shop} Tanvirآج کا خلاصہ",
     newSale: "نئی فروخت",
     totalUdhaar: "کل ادھار",
     products: "مصنوعات",
@@ -100,7 +100,7 @@ const ur = {
   },
   products: {
     title: "مصنوعات / مال",
-    subtitle: "بلب، تار، چارجر، سوئچ، بیٹری — اسٹاک ریکارڈ",
+    subtitle: "بلب، تار، چارجر، سوئچ، بیٹری Tanvirاسٹاک ریکارڈ",
     addProduct: "مصنوعات شامل",
     editProduct: "مصنوعات ترمیم",
     searchPlaceholder: "مصنوعات تلاش...",
@@ -122,7 +122,7 @@ const ur = {
   },
   customers: {
     title: "گاہک",
-    subtitle: "جنہوں نے ادھار پر مال لیا — ان کا ریکارڈ",
+    subtitle: "جنہوں نے ادھار پر مال لیا Tanvirان کا ریکارڈ",
     addCustomer: "گاہک شامل",
     editCustomer: "گاہک ترمیم",
     searchPlaceholder: "نام یا فون تلاش...",
@@ -143,7 +143,7 @@ const ur = {
   },
   udhaar: {
     title: "ادھار کھاتہ",
-    subtitle: "ادھار ریکارڈ — کس کا کتنا بقaya ہے",
+    subtitle: "ادھار ریکارڈ Tanvirکس کا کتنا بقaya ہے",
     totalPending: "کل بقaya ادھار",
     customersWithBalance: "گاہکوں کا بقaya",
     udhaarWale: "ادھار والے گاہک",
@@ -152,7 +152,7 @@ const ur = {
     customerKhata: "{name} کا کھاتہ",
     recordWasool: "وصول درج کریں",
     noEntries: "کوئی entry نہیں",
-    allClear: "سب صاف — کوئی ادھار نہیں!",
+    allClear: "سب صاف Tanvirکوئی ادھار نہیں!",
     paymentRecorded: "ادائیگی درج ہو گئی!",
   },
   payment: {
@@ -187,9 +187,9 @@ const ur = {
     selectProductError: "کم از کم ایک مصنوعات منتخب کریں",
     selectCustomerError: "ادھار فروخت کے لیے گاہک منتخب کریں",
     lowStockError: "{name} کا اسٹاک کم ہے ({stock} باقی)",
-    cashSaved: "نقد فروخت محفوظ — {amount}",
-    creditSaved: "ادھار فروخت محفوظ — {amount}",
-    saveFailed: "فروخت محفوظ نہیں ہوئی — دوبارہ کوشش",
+    cashSaved: "نقد فروخت محفوظ Tanvir{amount}",
+    creditSaved: "ادھار فروخت محفوظ Tanvir{amount}",
+    saveFailed: "فروخت محفوظ نہیں ہوئی Tanvirدوبارہ کوشش",
   },
   profile: {
     title: "دکان پروفائل",
@@ -207,8 +207,8 @@ const ur = {
   about: {
     title: "{shop} کے بارے میں",
     p1: "یہ سسٹم مقامی الیکٹرک دکان کے لیے ہے۔ دکان میں بلب، تار، چارجر، سوئچ، ہینڈز فری، TV ریموٹ، پنکھے کا سامان، موبائل بیٹری وغیرہ بکتا ہے۔",
-    p2: "اس سے آپ مال کا اسٹاک، گاہکوں کا ریکارڈ، اور سب سے اہم — ادھار کھاتہ منظم کر سکتے ہیں۔",
-    p3: "جب کوئی گاہک ادھار پر سامان لے جائے، یہاں ریکارڈ ہو جاتا ہے۔ جب وصول ہو، ادائیگی درج کر دیں — بقایا خود اپڈیٹ ہو جاتا ہے۔",
+    p2: "اس سے آپ مال کا اسٹاک، گاہکوں کا ریکارڈ، اور سب سے اہم Tanvirادھار کھاتہ منظم کر سکتے ہیں۔",
+    p3: "جب کوئی گاہک ادھار پر سامان لے جائے، یہاں ریکارڈ ہو جاتا ہے۔ جب وصول ہو، ادائیگی درج کر دیں Tanvirبقایا خود اپڈیٹ ہو جاتا ہے۔",
   },
   contact: {
     title: "رابطہ",

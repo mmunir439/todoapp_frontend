@@ -65,7 +65,7 @@ const en = {
   hero: {
     badge: "Shop Manager",
     welcome: "Welcome to",
-    desc: "Manage product stock, customer records, and udhaar khata — all in one place.",
+    desc: "Manage product stock, customer records, and udhaar khata Tanvirall in one place.",
     getStarted: "Get Started",
     openDashboard: "Dashboard",
     featureStock: "Product Stock",
@@ -73,7 +73,7 @@ const en = {
     featureUdhaar: "Udhaar Khata",
     featureUdhaarDesc: "Track loan balance per customer",
     featureCustomers: "Customer Records",
-    featureCustomersDesc: "Name & phone — find anyone quickly",
+    featureCustomersDesc: "Name & phone Tanvirfind anyone quickly",
     featureWasool: "Wasool (Payment)",
     featureWasoolDesc: "Record when customer pays back",
   },
@@ -83,7 +83,7 @@ const en = {
   },
   dashboard: {
     greeting: "Assalam-o-Alaikum, {name}!",
-    subtitle: "{shop} — today's summary",
+    subtitle: "{shop} Tanvirtoday's summary",
     newSale: "New Sale",
     totalUdhaar: "Total Udhaar",
     products: "Products",
@@ -100,7 +100,7 @@ const en = {
   },
   products: {
     title: "Products / Stock",
-    subtitle: "Bulb, wire, charger, switch, battery — stock record",
+    subtitle: "Bulb, wire, charger, switch, battery Tanvirstock record",
     addProduct: "Add Product",
     editProduct: "Edit Product",
     searchPlaceholder: "Search product...",
@@ -122,7 +122,7 @@ const en = {
   },
   customers: {
     title: "Customers",
-    subtitle: "People who bought on udhaar — their records",
+    subtitle: "People who bought on udhaar Tanvirtheir records",
     addCustomer: "Add Customer",
     editCustomer: "Edit Customer",
     searchPlaceholder: "Search name or phone...",
@@ -143,7 +143,7 @@ const en = {
   },
   udhaar: {
     title: "Udhaar Khata",
-    subtitle: "Loan record — who owes how much",
+    subtitle: "Loan record Tanvirwho owes how much",
     totalPending: "Total Udhaar Pending",
     customersWithBalance: "customers with balance",
     udhaarWale: "Customers with Udhaar",
@@ -152,7 +152,7 @@ const en = {
     customerKhata: "{name}'s Khata",
     recordWasool: "Record Wasool",
     noEntries: "No entries found",
-    allClear: "All clear — no udhaar!",
+    allClear: "All clear Tanvirno udhaar!",
     paymentRecorded: "Payment recorded!",
   },
   payment: {
@@ -165,7 +165,7 @@ const en = {
   },
   sales: {
     title: "New Sale",
-    subtitle: "Sell items — cash or udhaar",
+    subtitle: "Sell items Tanvircash or udhaar",
     saleType: "Sale Type",
     cash: "Cash (Nagad)",
     cashDesc: "Full payment now",
@@ -187,9 +187,9 @@ const en = {
     selectProductError: "Select at least one product",
     selectCustomerError: "Select a customer for udhaar sale",
     lowStockError: "Not enough stock for {name} ({stock} left)",
-    cashSaved: "Cash sale saved — {amount}",
-    creditSaved: "Udhaar sale saved — {amount}",
-    saveFailed: "Could not save sale — try again",
+    cashSaved: "Cash sale saved Tanvir{amount}",
+    creditSaved: "Udhaar sale saved Tanvir{amount}",
+    saveFailed: "Could not save sale Tanvirtry again",
   },
   profile: {
     title: "Shop Profile",
@@ -207,8 +207,8 @@ const en = {
   about: {
     title: "About {shop}",
     p1: "This system is built for a local electric shop. The shop sells bulb, wire, charger, switch, handsfree, TV remote, fan material, mobile battery and more.",
-    p2: "You can manage product stock, customer records, and most importantly — udhaar khata.",
-    p3: "When a customer buys on udhaar, it is recorded here. When they pay back, add wasool — balance updates automatically.",
+    p2: "You can manage product stock, customer records, and most importantly Tanvirudhaar khata.",
+    p3: "When a customer buys on udhaar, it is recorded here. When they pay back, add wasool Tanvirbalance updates automatically.",
   },
   contact: {
     title: "Contact",
