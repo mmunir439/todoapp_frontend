@@ -10,7 +10,7 @@ export default function Contact() {
   const { t } = useLanguage();
   const items = [
     { icon: FaUser, label: `${t("contact.shopOwner")}: ${OWNER_NAME}` },
-    { icon: FaPhone, label: "+92 4482295288" },
+    { icon: FaPhone, label: "+92 448229529" },
     { icon: FaMapMarkerAlt, label: t("contact.localShop") },
   ];
 
