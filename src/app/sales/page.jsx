@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Plus, Trash2, ShoppingCart } from "lucide-react";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
@@ -16,11 +16,12 @@ const emptyItem = { productId: "", qty: 1 };
 
 function SalesContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { t } = useLanguage();
   const [products, setProducts] = useState([]);
   const [customers, setCustomers] = useState([]);
-  const [saleType, setSaleType] = useState("cash");
-  const [customerId, setCustomerId] = useState("");
+  const [saleType, setSaleType] = useState(searchParams.get("type") === "credit" ? "credit" : "cash");
+  const [customerId, setCustomerId] = useState(searchParams.get("customer") || "");
   const [items, setItems] = useState([{ ...emptyItem }]);
   const [note, setNote] = useState("");
   const [alert, setAlert] = useState({ type: "", message: "" });
@@ -76,7 +77,9 @@ function SalesContent() {
       }
       setItems([{ ...emptyItem }]);
       setNote("");
-      setTimeout(() => router.push("/udhaar"), 1500);
+      const redirectUrl =
+        saleType === "credit" && customerId ? `/udhaar?customer=${customerId}` : "/udhaar";
+      setTimeout(() => router.push(redirectUrl), 1500);
     } catch (err) {
       setAlert({ type: "error", message: getErrorMessage(err) });
     } finally {
@@ -121,7 +124,10 @@ function SalesContent() {
                 <select required value={customerId} onChange={(e) => setCustomerId(e.target.value)} className="input-field">
                   <option value="">{t("sales.selectCustomer")}</option>
                   {customers.map((c) => (
-                    <option key={c._id} value={c._id}>{c.name} Tanvir{c.phone}{c.balance > 0 ? ` (${formatCurrency(c.balance)})` : ""}</option>
+                    <option key={c._id} value={c._id}>
+                      {c.name} — {c.phone}
+                      {c.balance > 0 ? ` (${formatCurrency(c.balance)})` : ""}
+                    </option>
                   ))}
                 </select>
               )}
@@ -145,7 +151,9 @@ function SalesContent() {
                         <select required value={item.productId} onChange={(e) => updateItem(idx, "productId", e.target.value)} className="input-field py-2 text-sm">
                           <option value="">{t("sales.selectProduct")}</option>
                           {products.map((p) => (
-                            <option key={p._id} value={p._id}>{p.name} Tanvir{formatCurrency(p.sellPrice)} ({t("common.stock")}: {p.stock})</option>
+                            <option key={p._id} value={p._id}>
+                              {p.name} — {formatCurrency(p.sellPrice)} ({t("common.stock")}: {p.stock})
+                            </option>
                           ))}
                         </select>
                       </div>
@@ -190,5 +198,17 @@ function SalesContent() {
 }
 
 export default function SalesPage() {
-  return <ProtectedRoute><SalesContent /></ProtectedRoute>;
+  return (
+    <ProtectedRoute>
+      <Suspense
+        fallback={
+          <div className="flex min-h-screen items-center justify-center">
+            <div className="h-10 w-10 animate-spin rounded-full border-4 border-sky-200 border-t-sky-600" />
+          </div>
+        }
+      >
+        <SalesContent />
+      </Suspense>
+    </ProtectedRoute>
+  );
 }

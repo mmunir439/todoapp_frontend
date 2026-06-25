@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import en from "../locales/en";
 import ur from "../locales/ur";
 
-const STORAGE_KEY = "taneer_locale";
+const STORAGE_KEY = "Tanvir_locale";
 
 const dictionaries = { en, ur };
 
