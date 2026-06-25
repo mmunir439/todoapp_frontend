@@ -9,6 +9,9 @@ function unwrap(response) {
 }
 
 export function getErrorMessage(error) {
+  if (!error.response && error.message === "Network Error") {
+    return "Cannot reach the server. Check NEXT_PUBLIC_BACKEND_URL includes /api/v1 and that the backend FRONTEND_URL matches this site.";
+  }
   const errors = error.response?.data?.errors;
   if (Array.isArray(errors) && errors.length > 0) {
     return errors.map((e) => e.message || e).join(", ");
