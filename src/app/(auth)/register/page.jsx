@@ -7,6 +7,7 @@ import { useAuth } from "@/app/context/AuthContext";
 import { useLanguage } from "@/app/context/LanguageContext";
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 import Alert from "@/app/components/Alert";
+import PasswordInput from "@/app/components/PasswordInput";
 import { getErrorMessage } from "@/app/utils/api";
 import { DEFAULT_SHOP_NAME } from "@/app/utils/shopHelpers";
 
@@ -26,14 +27,26 @@ export default function RegisterPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setSuccess("");
     setError("");
+
+    if (!formData.username.trim() || !formData.email.trim() || !formData.password) {
+      setError(t("auth.fillAllFields"));
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      setError(t("auth.passwordMinLength"));
+      return;
+    }
+
+    setIsSubmitting(true);
     try {
       await register(formData);
       setSuccess(t("auth.registerSuccess"));
       setTimeout(() => router.push("/login"), 1500);
     } catch (err) {
-      setError(getErrorMessage(err));
+      setError(getErrorMessage(err) || t("auth.registerFailed"));
     } finally {
       setIsSubmitting(false);
     }
@@ -67,7 +80,14 @@ export default function RegisterPage() {
             </div>
             <div>
               <label className="mb-1.5 block text-sm font-semibold text-slate-700">{t("auth.password")} *</label>
-              <input type="password" required minLength={6} value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} className="input-field" />
+              <PasswordInput
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                placeholder={t("auth.passwordPlaceholder")}
+                autoComplete="new-password"
+                minLength={6}
+                required
+              />
             </div>
             <button type="submit" disabled={isSubmitting} className="btn-primary w-full">{isSubmitting ? t("auth.creating") : t("auth.register")}</button>
           </form>

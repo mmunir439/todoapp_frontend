@@ -61,6 +61,12 @@ const en = {
     emailPlaceholder: "you@example.com",
     passwordPlaceholder: "Your password",
     namePlaceholder: "Shop owner name",
+    showPassword: "Show password",
+    hidePassword: "Hide password",
+    fillAllFields: "Please fill in all required fields.",
+    passwordMinLength: "Password must be at least 6 characters.",
+    loginFailed: "Login failed. Please check your email and password.",
+    registerFailed: "Registration failed. Please try again.",
   },
   hero: {
     badge: "Shop Manager",

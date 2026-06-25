@@ -9,9 +9,15 @@ export default function Alert({ type = "info", message, onClose }) {
 
   return (
     <div
-      className={`mb-4 flex items-center justify-between rounded-lg border px-4 py-3 text-sm font-medium ${styles[type]}`}
+      role={type === "error" ? "alert" : "status"}
+      className={`mb-4 flex items-start justify-between gap-3 rounded-lg border px-4 py-3 text-sm font-medium ${styles[type]}`}
     >
-      <span>{message}</span>
+      {type === "error" && (
+        <span className="mt-0.5 shrink-0 text-base" aria-hidden="true">
+          ⚠
+        </span>
+      )}
+      <span className="flex-1">{message}</span>
       {onClose && (
         <button
           type="button"

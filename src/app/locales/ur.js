@@ -61,6 +61,12 @@ const ur = {
     emailPlaceholder: "you@example.com",
     passwordPlaceholder: "اپنا پاس ورڈ",
     namePlaceholder: "دکان مالک کا نام",
+    showPassword: "پاس ورڈ دکھائیں",
+    hidePassword: "پاس ورڈ چھپائیں",
+    fillAllFields: "براہ کرم تمام ضروری فیلڈز بھریں۔",
+    passwordMinLength: "پاس ورڈ کم از کم 6 حروف کا ہونا چاہیے۔",
+    loginFailed: "لاگ اِن ناکام۔ ای میل اور پاس ورڈ چیک کریں۔",
+    registerFailed: "رجسٹریشن ناکام۔ دوبارہ کوشش کریں۔",
   },
   hero: {
     badge: "شاپ مینیجر",

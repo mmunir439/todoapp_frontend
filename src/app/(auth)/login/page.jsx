@@ -7,6 +7,7 @@ import { useAuth } from "@/app/context/AuthContext";
 import { useLanguage } from "@/app/context/LanguageContext";
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 import Alert from "@/app/components/Alert";
+import PasswordInput from "@/app/components/PasswordInput";
 import { getErrorMessage } from "@/app/utils/api";
 
 export default function LoginPage() {
@@ -20,14 +21,21 @@ export default function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setSuccess("");
     setError("");
+
+    if (!formData.email.trim() || !formData.password) {
+      setError(t("auth.fillAllFields"));
+      return;
+    }
+
+    setIsSubmitting(true);
     try {
       await login(formData);
       setSuccess(t("auth.loginSuccess"));
       setTimeout(() => router.push("/dashboard"), 800);
     } catch (err) {
-      setError(getErrorMessage(err));
+      setError(getErrorMessage(err) || t("auth.loginFailed"));
     } finally {
       setIsSubmitting(false);
     }
@@ -53,7 +61,13 @@ export default function LoginPage() {
             </div>
             <div>
               <label className="mb-1.5 block text-sm font-semibold text-slate-700">{t("auth.password")}</label>
-              <input type="password" required value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} className="input-field" placeholder={t("auth.passwordPlaceholder")} />
+              <PasswordInput
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                placeholder={t("auth.passwordPlaceholder")}
+                autoComplete="current-password"
+                required
+              />
             </div>
             <button type="submit" disabled={isSubmitting} className="btn-primary w-full">{isSubmitting ? t("auth.signingIn") : t("auth.signIn")}</button>
           </form>
